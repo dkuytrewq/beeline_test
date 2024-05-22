@@ -12,10 +12,12 @@ const SubdivisionList = ({ listOfSubdivisions }) => {
 
     const toggleSubdivision = (id) => {
         setArrOpenedSubs((prevArrState) =>
+            // Удаляем или добовляем id подразделения в массив открытых
             prevArrState.includes(id) ? prevArrState.filter((subId) => subId !== id) : [...prevArrState, id]
         );
 
         setObjViewedStatus((prevObjState) => ({
+            // В не зависимости от текущего значения objViewedStatus[id] присваиваем ему true по клику
             ...prevObjState,
             [id]: true
         }));
