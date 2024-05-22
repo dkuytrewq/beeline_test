@@ -4,7 +4,6 @@
 
 .subdivision {
     border: 1px solid #ccc;
-    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
     background-color: #4e7eb2;
@@ -15,5 +14,21 @@
 
 .subdivision-code,
 .subdivision-name {
+    flex: 1;
+}
+
+.positions {
+    padding: 10px;
+    background-color: #f1f1f1;
+}
+
+.position {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.position-name,
+.collaborator-fullname {
     flex: 1;
 }
