@@ -11,18 +11,14 @@ const SubdivisionList = ({ listOfSubdivisions }) => {
     const [objViewedStatus, setObjViewedStatus] = useState({});
 
     const toggleSubdivision = (id) => {
-        if (arrOpenedSubs.includes(id)) {
-            // Если id уже есть в arrOpenedSubs, удаляем его из массива
-            setArrOpenedSubs(arrOpenedSubs.filter((subId) => subId !== id));
-        } else {
-            // Если id нет в arrOpenedSubs, добавляем его в массив
-            setArrOpenedSubs([...arrOpenedSubs, id]);
+        setArrOpenedSubs((prevArrState) =>
+            prevArrState.includes(id) ? prevArrState.filter((subId) => subId !== id) : [...prevArrState, id]
+        );
 
-            // Помечаем, что подразделение было просмотрено
-            if (!objViewedStatus[id]) {
-                setObjViewedStatus({ ...objViewedStatus, [id]: true });
-            }
-        }
+        setObjViewedStatus((prevObjState) => ({
+            ...prevObjState,
+            [id]: true
+        }));
     };
 
     const isOpen = (id) => arrOpenedSubs.includes(id);
